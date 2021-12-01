@@ -1,7 +1,8 @@
 # Ethereum validator with JSR380(aka Bean validation)
 
 ## Features
- - `@EtherAddress`: [`web3-utils.isAddress()`][LINK_SOURCE] port to JVM
+ - `@EtherAddress`: Ethereum address validator
+   - Original: [web3.js][LINK_SOURCE]
  - `@EtherTxHash`: Ethereum transaction hash (aka TX ID) validator
 
 ## Requirements
