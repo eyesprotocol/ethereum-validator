@@ -2,6 +2,7 @@
 
 ## Features
  - `@EtherAddress`: [`web3-utils.isAddress()`][LINK_SOURCE] port to JVM
+ - `@EtherTxHash`: Ethereum transaction hash (aka TX ID) validator
 
 ## Requirements
  - JDK 1.8 or higher
