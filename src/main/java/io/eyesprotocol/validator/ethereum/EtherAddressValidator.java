@@ -22,7 +22,7 @@ public class EtherAddressValidator implements ConstraintValidator<EtherAddress, 
     @Override
     public boolean isValid(String address, ConstraintValidatorContext context) {
 
-        // null 은 유효한 것으로 판단
+        // nullable
         if (address == null) {
             return true;
         }
