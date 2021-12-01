@@ -2,6 +2,7 @@
 
 plugins {
   java
+  jacoco
   `maven-publish`
 }
 
@@ -30,6 +31,14 @@ dependencies {
 
 tasks.withType<Test> {
   useJUnitPlatform()
+}
+
+tasks.jacocoTestReport {
+  reports {
+    html.required.set(false)
+    xml.required.set(false)
+    csv.required.set(true)
+  }
 }
 
 publishing {
