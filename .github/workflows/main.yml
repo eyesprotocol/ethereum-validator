@@ -2,6 +2,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ./src/**/*.java
+      - build.gradle.kts
+      - settings.gradle.kts
+      - .github/workflows/main.yml
 
 jobs:
   commitlint:
