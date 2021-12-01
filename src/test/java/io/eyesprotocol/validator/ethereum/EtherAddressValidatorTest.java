@@ -4,36 +4,18 @@
  */
 package io.eyesprotocol.validator.ethereum;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Jonathan
  * @since 2021-11-30
  */
+@SuppressWarnings("SpellCheckingInspection")
 class EtherAddressValidatorTest {
-    private static Validator validator;
-
-    @BeforeAll
-    static void setUp() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
-    }
 
     @Test
-    @SuppressWarnings("SpellCheckingInspection")
+    @DisplayName("Validate ethereum addresses")
     void isValid() {
         // valid
         valid("0xE37c0D48d68da5c5b14E5c1a9f1CFE802776D9FF");
@@ -51,6 +33,7 @@ class EtherAddressValidatorTest {
     }
 
     @Test
+    @DisplayName("Invalid ethereum addresses")
     void isInvalid() {
         // invalid
         invalid("6xAff4d6793F584a473348EbA058deb8caad77a288");
@@ -61,27 +44,20 @@ class EtherAddressValidatorTest {
     }
 
     @Test
+    @DisplayName("Localization format test")
     void localizationTest() {
-        String message = validator
-                .validate(new Constraint("not valid address"))
-                .stream()
-                .map(ConstraintViolation::getMessage)
-                .collect(Collectors.joining());
-
-        assertEquals("Invalid Ethereum address format", message);
+        EtherValidatorTestUtils.localizationTest("Invalid Ethereum address format", new Constraint(""));
     }
 
     private void valid(String address) {
-        Set<ConstraintViolation<Constraint>> violations = validator.validate(new Constraint(address));
-        Assertions.assertEquals(0, violations.size(), address);
+        EtherValidatorTestUtils.valid(new Constraint(address));
     }
 
     private void invalid(String address) {
-        Set<ConstraintViolation<Constraint>> violations = validator.validate(new Constraint(address));
-        assertTrue(violations.size() > 0);
+        EtherValidatorTestUtils.invalid(new Constraint(address));
     }
 
-    static class Constraint {
+    class Constraint {
         @EtherAddress
         String address;
 
