@@ -20,11 +20,6 @@ public class EtherAddressValidator implements ConstraintValidator<EtherAddress, 
     Keccak.Digest256 digester = new Keccak.Digest256();
 
     @Override
-    public void initialize(EtherAddress constraintAnnotation) {
-        ConstraintValidator.super.initialize(constraintAnnotation);
-    }
-
-    @Override
     public boolean isValid(String address, ConstraintValidatorContext context) {
 
         // null 은 유효한 것으로 판단
