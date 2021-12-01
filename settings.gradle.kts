@@ -1,2 +1,2 @@
-rootProject.name = "ethereum-wallet-address-validator"
+rootProject.name = "ethereum-validator"
 

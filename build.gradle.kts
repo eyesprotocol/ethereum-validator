@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.eyesprotocol.validator"
-version = "0.0.0"
+version = "0.1.0-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 java.targetCompatibility = JavaVersion.VERSION_1_8
@@ -41,21 +41,32 @@ tasks.jacocoTestReport {
   }
 }
 
+java {
+  withJavadocJar()
+  withSourcesJar()
+}
+
 publishing {
-  repositories {
-    maven {
-      url = uri("https://jitpack.io")
-      credentials {
-        username = System.getenv("JITPACK_TOKEN")
+  publications {
+    repositories {
+      maven {
+        name = "OSSRH"
+
+        val releasesRepoUrl = "https://s01.oss.sonatype.org/content/repositories/releases/"
+        val snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+        url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+
+        credentials {
+          username = System.getenv("MAVEN_USERNAME")
+          password = System.getenv("MAVEN_PASSWORD")
+        }
       }
     }
-  }
 
-  publications {
     create<MavenPublication>("maven") {
       groupId = rootProject.group.toString()
-      artifactId = "ethereum-validator"
-      version = "0.1.0-SNAPSHOT"
+      artifactId = rootProject.name
+      version = rootProject.version.toString()
 
       from(components["java"])
 

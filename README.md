@@ -7,6 +7,19 @@
 ## Requirements
  - JDK 1.8 or higher
 
+## Usages
+
+**gradle:**
+```groovy
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("io.eyesprotocol.validator:ethereum-validator:0.1.0-SNAPSHOT")
+}
+```
+
 ## License and credit
 This project under the [GNU Lesser General Public License v3.0](./LICENSE)
  - [ChainSafe/web3.js][LINK_WEB3] (LGPL-3.0)
