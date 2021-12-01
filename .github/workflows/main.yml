@@ -30,6 +30,7 @@ jobs:
         with:
           name: ${{ runner.os }}-${{ matrix.java-version }}-${{ env.GITHUB_SHA }}-build
           path: build
+          retention-days: 1
   test:
     name: Test with OpenJDK v${{ matrix.java-version }}
     runs-on: ubuntu-latest
@@ -53,6 +54,7 @@ jobs:
         with:
           name: ${{ runner.os }}-${{ matrix.java-version }}-${{ env.GITHUB_SHA }}-test
           path: build
+          retention-days: 1
   coverage:
     name: Check test coverage with Jacoco
     runs-on: ubuntu-latest
