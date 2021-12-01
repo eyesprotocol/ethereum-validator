@@ -23,6 +23,7 @@ class EtherTxHashValidatorTest {
         valid(new Constraint("0x582c0cf18f49fcc7c4d4812411441d258cfcc3c55241a6467613127d049f17e0"));
         valid(new Constraint("0x83d244f753659b31cdeddd330714b22c0a5b59e55990d7b0bb90781238c8b25a"));
         valid(new Constraint("0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838"));
+        valid(new Constraint(null));
     }
 
     @Test
@@ -30,6 +31,7 @@ class EtherTxHashValidatorTest {
     void isInvalid() {
         invalid(new Constraint("0xa6c2285e15e439662daa586f6d5b163263775e9f"));
         invalid(new Constraint("0x0000000000000000000000000000000000000000"));
+        invalid(new Constraint(""));
     }
 
     @Test

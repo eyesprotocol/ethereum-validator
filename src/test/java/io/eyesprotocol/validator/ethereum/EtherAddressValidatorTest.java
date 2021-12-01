@@ -7,6 +7,8 @@ package io.eyesprotocol.validator.ethereum;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static io.eyesprotocol.validator.ethereum.EtherValidatorTestUtils.invalid;
+
 /**
  * @author Jonathan
  * @since 2021-11-30
@@ -30,6 +32,7 @@ class EtherAddressValidatorTest {
         valid("0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359");
         valid("0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB");
         valid("0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb");
+        valid(null);
     }
 
     @Test
@@ -41,6 +44,7 @@ class EtherAddressValidatorTest {
         invalid("0XD1220A0CF47C7B9BE7A2E6BA89F429762E7B9ADB");
         invalid("aFf4d6793f584a473348ebA058deb8caad77a2885");
         invalid("0xff4d6793F584a473");
+        invalid("");
     }
 
     @Test
