@@ -16,6 +16,7 @@ import javax.validation.ValidatorFactory;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -57,6 +58,17 @@ class EtherAddressValidatorTest {
         invalid("0XD1220A0CF47C7B9BE7A2E6BA89F429762E7B9ADB");
         invalid("aFf4d6793f584a473348ebA058deb8caad77a2885");
         invalid("0xff4d6793F584a473");
+    }
+
+    @Test
+    void localizationTest() {
+        String message = validator
+                .validate(new Constraint("not valid address"))
+                .stream()
+                .map(ConstraintViolation::getMessage)
+                .collect(Collectors.joining());
+
+        assertEquals("Invalid Ethereum address format", message);
     }
 
     private void valid(String address) {
