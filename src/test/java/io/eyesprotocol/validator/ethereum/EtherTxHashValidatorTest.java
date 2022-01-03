@@ -32,6 +32,7 @@ class EtherTxHashValidatorTest {
         invalid(new Constraint("0xa6c2285e15e439662daa586f6d5b163263775e9f"));
         invalid(new Constraint("0x0000000000000000000000000000000000000000"));
         invalid(new Constraint(""));
+        EtherValidatorTestUtils.invalid(new ConstraintNotNull(null));
     }
 
     @Test
@@ -45,6 +46,15 @@ class EtherTxHashValidatorTest {
         String txHash;
 
         public Constraint(String txHash) {
+            this.txHash = txHash;
+        }
+    }
+
+    class ConstraintNotNull {
+        @EtherTxHash(nullable = false)
+        String txHash;
+
+        public ConstraintNotNull(String txHash) {
             this.txHash = txHash;
         }
     }

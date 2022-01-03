@@ -19,14 +19,24 @@ import java.util.Locale;
  * @since 0.1.0
  */
 public class EtherAddressValidator implements ConstraintValidator<EtherAddress, String> {
-    Keccak.Digest256 digester = new Keccak.Digest256();
+    private final Keccak.Digest256 digester = new Keccak.Digest256();
+
+    /**
+     * @since 1.0.0
+     */
+    private boolean nullable;
+
+    @Override
+    public void initialize(EtherAddress annotation) {
+        this.nullable = annotation.nullable();
+    }
 
     @Override
     public boolean isValid(String address, ConstraintValidatorContext context) {
 
         // nullable
         if (address == null) {
-            return true;
+            return nullable;
         }
 
         /// check basic requirements

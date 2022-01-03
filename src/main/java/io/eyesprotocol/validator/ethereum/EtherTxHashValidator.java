@@ -14,10 +14,22 @@ import javax.validation.ConstraintValidatorContext;
  * @since 0.1.0
  */
 public class EtherTxHashValidator implements ConstraintValidator<EtherTxHash, String> {
+
+    /**
+     * @since 1.0.0
+     */
+    private boolean nullable;
+
+    @Override
+    public void initialize(EtherTxHash annotation) {
+        this.nullable = annotation.nullable();
+    }
+
+
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         if (value == null) {
-            return true;
+            return nullable;
         }
 
         return value.matches("^0x([A-Fa-f0-9]{64})$");

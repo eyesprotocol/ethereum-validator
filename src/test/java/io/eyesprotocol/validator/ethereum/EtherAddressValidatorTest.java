@@ -43,6 +43,8 @@ class EtherAddressValidatorTest {
         invalid("aFf4d6793f584a473348ebA058deb8caad77a2885");
         invalid("0xff4d6793F584a473");
         invalid("");
+
+        EtherValidatorTestUtils.invalid(new ConstraintNotNull(null));
     }
 
     @Test
@@ -63,6 +65,15 @@ class EtherAddressValidatorTest {
         String address;
 
         public Constraint(String address) {
+            this.address = address;
+        }
+    }
+
+    class ConstraintNotNull {
+        @EtherAddress(nullable = false)
+        String address;
+
+        public ConstraintNotNull(String address) {
             this.address = address;
         }
     }

@@ -10,7 +10,7 @@ import java.lang.annotation.*;
 
 /**
  * Annotation to validate the Ethereum address format <br>
- * <b>NOTE</b>: null elements are considered valid.
+ * By default, null is considered a valid value. You can use <code>@EtherAddress(nullable = false)</code> to consider it invalid.
  *
  * @see io.eyesprotocol.validator.ethereum.EtherAddressValidator
  * @since 0.1.0
@@ -24,4 +24,12 @@ public @interface EtherAddress {
     String message() default "{io.eyesprotocol.validator.ethereum.EtherWalletAddress.message}";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
+
+    /**
+     * Whether to evaluate null as a valid value (Default: true)
+     *
+     * @return true is nullable, false is not null
+     * @since 1.0.0
+     */
+    boolean nullable() default true;
 }
