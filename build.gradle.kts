@@ -88,7 +88,7 @@ publishing {
         licenses {
           license {
             name.set("GNU Lesser General Public License v3.0")
-            url.set("http://www.gnu.org/licenses/")
+            url.set("https://www.gnu.org/licenses/lgpl-3.0.html")
           }
         }
 
