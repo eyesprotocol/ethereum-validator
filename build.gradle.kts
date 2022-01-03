@@ -1,6 +1,5 @@
-import java.math.BigDecimal
-
 @file:Suppress("GradlePackageUpdate")
+import java.math.BigDecimal
 
 plugins {
   java
