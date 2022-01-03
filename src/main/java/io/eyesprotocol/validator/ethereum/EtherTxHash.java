@@ -13,7 +13,7 @@ import java.lang.annotation.*;
  * Annotation to validate the Ethereum transaction hash format <br>
  * <b>NOTE</b>: null elements are considered valid.
  *
- * @since 2021-12-01
+ * @since 0.1.0
  */
 @Documented
 @Target(ElementType.FIELD)

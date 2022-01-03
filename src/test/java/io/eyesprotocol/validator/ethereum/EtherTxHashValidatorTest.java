@@ -12,7 +12,7 @@ import static io.eyesprotocol.validator.ethereum.EtherValidatorTestUtils.invalid
 import static io.eyesprotocol.validator.ethereum.EtherValidatorTestUtils.valid;
 
 /**
- * @since 2021-12-01
+ * @since 0.1.0
  */
 @SuppressWarnings("SpellCheckingInspection")
 class EtherTxHashValidatorTest {

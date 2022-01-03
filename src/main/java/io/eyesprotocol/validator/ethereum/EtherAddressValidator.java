@@ -16,7 +16,7 @@ import java.util.Locale;
  * <b>NOTE</b>: This source is implemented by referring to the web3.js isAddress function.
  *
  * @see <a href="https://github.com/ChainSafe/web3.js/blob/2279a67e0702343764db5cae2dffc04048083952/packages/web3-utils/src/utils.js#L85">Reference source code</a>
- * @since 2021-11-30
+ * @since 0.1.0
  */
 public class EtherAddressValidator implements ConstraintValidator<EtherAddress, String> {
     Keccak.Digest256 digester = new Keccak.Digest256();

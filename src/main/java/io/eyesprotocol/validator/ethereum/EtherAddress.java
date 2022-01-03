@@ -13,7 +13,7 @@ import java.lang.annotation.*;
  * <b>NOTE</b>: null elements are considered valid.
  *
  * @see io.eyesprotocol.validator.ethereum.EtherAddressValidator
- * @since 2021-11-30
+ * @since 0.1.0
  */
 @Documented
 @SuppressWarnings("unused")

@@ -7,17 +7,15 @@ package io.eyesprotocol.validator.ethereum;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.eyesprotocol.validator.ethereum.EtherValidatorTestUtils.invalid;
-
 /**
  * @author Jonathan
- * @since 2021-11-30
+ * @since 0.1.0
  */
 @SuppressWarnings("SpellCheckingInspection")
 class EtherAddressValidatorTest {
 
     @Test
-    @DisplayName("Validate ethereum addresses")
+    @DisplayName("Valid ethereum addresses")
     void isValid() {
         // valid
         valid("0xE37c0D48d68da5c5b14E5c1a9f1CFE802776D9FF");
@@ -56,7 +54,6 @@ class EtherAddressValidatorTest {
     private void valid(String address) {
         EtherValidatorTestUtils.valid(new Constraint(address));
     }
-
     private void invalid(String address) {
         EtherValidatorTestUtils.invalid(new Constraint(address));
     }

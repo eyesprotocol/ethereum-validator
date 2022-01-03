@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * @since 2021-12-01
+ * @since 0.1.0
  */
 public class EtherValidatorTestUtils {
     public static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();

@@ -5,5 +5,7 @@
 
 /**
  * Ethereum-related validation annotations and constraints
+ *
+ * @since 0.1.0
  */
 package io.eyesprotocol.validator.ethereum;
