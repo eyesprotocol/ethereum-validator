@@ -9,6 +9,8 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
+ * Check that string the character valid Ethereum transaction hash.
+ *
  * @since 2021-12-01
  */
 public class EtherTxHashValidator implements ConstraintValidator<EtherTxHash, String> {

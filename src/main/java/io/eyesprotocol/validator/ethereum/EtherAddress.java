@@ -6,17 +6,16 @@ package io.eyesprotocol.validator.ethereum;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
- * Ethereum address validate annotation
+ * Annotation to validate the Ethereum address format <br>
+ * <b>NOTE</b>: null elements are considered valid.
  *
  * @see io.eyesprotocol.validator.ethereum.EtherAddressValidator
  * @since 2021-11-30
  */
+@Documented
 @SuppressWarnings("unused")
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
