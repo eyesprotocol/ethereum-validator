@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 EYES Protocol
+ * Copyright (c) 2021-2022 EYES Protocol
  * SPDX-Short-Identifier: LGPL-3.0-or-later
  */
 
