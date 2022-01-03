@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("io.eyesprotocol.validator:ethereum-validator:0.1.0-SNAPSHOT")
+    implementation("io.eyesprotocol.validator:ethereum-validator:1.0.0")
 }
 ```
 
