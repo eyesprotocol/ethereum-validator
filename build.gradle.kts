@@ -1,3 +1,5 @@
+import java.math.BigDecimal
+
 @file:Suppress("GradlePackageUpdate")
 
 plugins {
@@ -35,9 +37,23 @@ tasks.withType<Test> {
 
 tasks.jacocoTestReport {
   reports {
-    html.required.set(false)
+    html.required.set(true)
     xml.required.set(false)
     csv.required.set(true)
+  }
+}
+
+tasks.jacocoTestCoverageVerification {
+  violationRules {
+    rule {
+      element = "CLASS"
+
+      limit {
+        counter = "BRANCH"
+        value = "COVEREDRATIO"
+        minimum = BigDecimal(0.90)
+      }
+    }
   }
 }
 
