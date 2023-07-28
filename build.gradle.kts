@@ -98,7 +98,7 @@ publishing {
       pom {
         name.set("EYES Protocol Validator - Ethereum")
         description.set("Ethereum validator with JSR380(aka Bean validation)")
-        url.set("https://eyesprotocol.io")
+        url.set("https://eyesprotocol.net")
 
         licenses {
           license {
